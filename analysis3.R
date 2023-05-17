@@ -149,107 +149,15 @@ ggplot(data = data_long, mapping = aes(x = factor(variable), y = value, fill = s
   geom_bar(stat = 'identity', position = 'dodge')
 dev.off()
 pdf("barplot_stacked.pdf", width = 15, height = 6)
-ggplot(data = data_long, mapping = aes(x = factor(variable), y = value, fill = sampleId)) + geom_bar(stat = 'identity', position = 'stack')
+ggplot(data = data_long, mapping = aes(x = factor(variable), y = value, fill = sampleId)) + 
+  geom_bar(stat = 'identity', position = 'stack')
 dev.off()
 #guides(fill = guide_legend(reverse = TRUE))
 
 
-library(hdf5r)
-library(Seurat) 
-sample_1005<-Read10X_h5("Partek_scRNA_Feb_22-cellranger_new_exported (1)/filtered_feature_bc_matrix1005.h5")
-seurat_1005<-CreateSeuratObject(sample_1005, project = "sample_1005")
-seurat_1005
-#An object of class Seurat 
-#21331 features across 491 samples within 1 assay 
-#Active assay: RNA (21331 features, 0 variable features)
+pdf("barplot_stacked_change_color.pdf", width = 15, height = 6)
+ggplot(data = data_long, mapping = aes(x = factor(variable), y = value, fill = sampleId)) + 
+  geom_bar(stat = 'identity', position = 'stack') +
+  scale_fill_manual(values=c('#1F77B4','#D62728',"#9467BD","#2CA02C","#E377C2","#7F7F7F","#BCBD22"))
+dev.off()
 
-sample_1012<-Read10X_h5("Partek_scRNA_Feb_22-cellranger_new_exported (1)/filtered_feature_bc_matrix1012.h5")
-sample_1012<-CreateSeuratObject(sample_1012, project = "sample_1012")
-sample_1012
-#An object of class Seurat 
-#21331 features across 1151 samples within 1 assay 
-#Active assay: RNA (21331 features, 0 variable features)
-
-sample_1016v1<-Read10X_h5("Partek_scRNA_Feb_22-cellranger_new_exported (1)/filtered_feature_bc_matrix1016v1.h5")
-sample_1016v1<-CreateSeuratObject(sample_1016v1, project = "sample_1016v1")
-sample_1016v1
-#An object of class Seurat 
-#21331 features across 3256 samples within 1 assay 
-#Active assay: RNA (21331 features, 0 variable features)
-
-sample_1020v1<-Read10X_h5("Partek_scRNA_Feb_22-cellranger_new_exported (1)/filtered_feature_bc_matrix1020v1.h5")
-sample_1020v1<-CreateSeuratObject(sample_1005, project = "sample_1020v1")
-sample_1020v1
-#An object of class Seurat 
-#21331 features across 491 samples within 1 assay 
-#Active assay: RNA (21331 features, 0 variable features)
-
-sample_1020v4<-Read10X_h5("Partek_scRNA_Feb_22-cellranger_new_exported (1)/filtered_feature_bc_matrix1020v4.h5")
-sample_1020v4<-CreateSeuratObject(sample_1005, project = "sample_1020v4")
-sample_1020v4
-#An object of class Seurat 
-#21331 features across 491 samples within 1 assay 
-#Active assay: RNA (21331 features, 0 variable features)
-
-sample_1023v2<-Read10X_h5("Partek_scRNA_Feb_22-cellranger_new_exported (1)/filtered_feature_bc_matrix1023v2.h5")
-sample_1023v2<-CreateSeuratObject(sample_1005, project = "sample_1023v2")
-sample_1023v2
-#An object of class Seurat 
-#21331 features across 491 samples within 1 assay 
-#Active assay: RNA (21331 features, 0 variable features)
-
-sample_1024v1<-Read10X_h5("Partek_scRNA_Feb_22-cellranger_new_exported (1)/filtered_feature_bc_matrix1024v1.h5")
-sample_1024v1<-CreateSeuratObject(sample_1005, project = "sample_1024v1")
-sample_1024v1
-#An object of class Seurat 
-#21331 features across 491 samples within 1 assay 
-#Active assay: RNA (21331 features, 0 variable features)
-
-sample_1025v1<-Read10X_h5("Partek_scRNA_Feb_22-cellranger_new_exported (1)/filtered_feature_bc_matrix1025v1.h5")
-sample_1025v1<-CreateSeuratObject(sample_1005, project = "sample_1025v1")
-sample_1025v1
-#object of class Seurat 
-#21331 features across 491 samples within 1 assay 
-#Active assay: RNA (21331 features, 0 variable features)
-
-sample_1026v1<-Read10X_h5("Partek_scRNA_Feb_22-cellranger_new_exported (1)/filtered_feature_bc_matrix1026v1.h5")
-sample_1026v1<-CreateSeuratObject(sample_1005, project = "sample_1026v1")
-sample_1026v1
-#An object of class Seurat 
-#21331 features across 491 samples within 1 assay 
-#Active assay: RNA (21331 features, 0 variable features)
-
-sample_1028v1<-Read10X_h5("Partek_scRNA_Feb_22-cellranger_new_exported (1)/filtered_feature_bc_matrix1028v1.h5")
-sample_1028v1<-CreateSeuratObject(sample_1005, project = "sample_1028v1")
-sample_1028v1
-#An object of class Seurat 
-#21331 features across 491 samples within 1 assay 
-#Active assay: RNA (21331 features, 0 variable features)
-
-sample_1029v1<-Read10X_h5("Partek_scRNA_Feb_22-cellranger_new_exported (1)/filtered_feature_bc_matrix1029v1.h5")
-sample_1029v1<-CreateSeuratObject(sample_1005, project = "sample_1029v1")
-sample_1029v1
-#An object of class Seurat 
-#21331 features across 491 samples within 1 assay 
-#Active assay: RNA (21331 features, 0 variable features)
-
-sample_1030v2<-Read10X_h5("Partek_scRNA_Feb_22-cellranger_new_exported (1)/filtered_feature_bc_matrix1030v2.h5")
-sample_1030v2<-CreateSeuratObject(sample_1005, project = "sample_1030v2")
-sample_1030v2
-#An object of class Seurat 
-#21331 features across 491 samples within 1 assay 
-#Active assay: RNA (21331 features, 0 variable features)
-
-sample_1031v1<-Read10X_h5("Partek_scRNA_Feb_22-cellranger_new_exported (1)/filtered_feature_bc_matrix1031v1.h5")
-sample_1031v1<-CreateSeuratObject(sample_1005, project = "sample_1031v1")
-sample_1031v1
-#An object of class Seurat 
-#21331 features across 491 samples within 1 assay 
-#Active assay: RNA (21331 features, 0 variable features)
-
-sample_1033v1<-Read10X_h5("Partek_scRNA_Feb_22-cellranger_new_exported (1)/filtered_feature_bc_matrix1033v1.h5")
-sample_1033v1<-CreateSeuratObject(sample_1005, project = "sample_1033v1")
-sample_1033v1
-#An object of class Seurat 
-#21331 features across 491 samples within 1 assay 
-#Active assay: RNA (21331 features, 0 variable features)
